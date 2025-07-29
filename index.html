@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Rater - AI Beauty Analysis</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">Face Rater</h1>
+            <p class="subtitle">AI-powered facial beauty analysis</p>
+        </header>
+
+        <main class="main-content">
+            <div class="camera-section">
+                <div class="video-container">
+                    <video id="video" width="640" height="480" autoplay muted></video>
+                    <canvas id="canvas" width="640" height="480" style="display: none;"></canvas>
+                    <div class="overlay" id="overlay">
+                        <div class="face-frame"></div>
+                    </div>
+                </div>
+                
+                <div class="controls">
+                    <button id="startButton" class="btn btn-primary">
+                        <span class="btn-text">Start Camera</span>
+                        <div class="btn-loader" style="display: none;">
+                            <div class="spinner"></div>
+                        </div>
+                    </button>
+                    <button id="scanButton" class="btn btn-secondary" disabled>
+                        <span class="btn-text">Scan My Face</span>
+                        <div class="btn-loader" style="display: none;">
+                            <div class="spinner"></div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <div class="result-card">
+                    <div class="score-display">
+                        <div class="score-circle">
+                            <span class="score-number" id="scoreNumber">0</span>
+                            <span class="score-max">/10</span>
+                        </div>
+                        <h3 class="result-title">Your Face Rating</h3>
+                    </div>
+                    
+                    <div class="analysis-details">
+                        <h4>Analysis Breakdown</h4>
+                        <div class="metrics">
+                            <div class="metric">
+                                <span class="metric-label">Symmetry</span>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" id="symmetryBar"></div>
+                                </div>
+                                <span class="metric-value" id="symmetryValue">0%</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Proportions</span>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" id="proportionsBar"></div>
+                                </div>
+                                <span class="metric-value" id="proportionsValue">0%</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">Landmarks</span>
+                                <div class="metric-bar">
+                                    <div class="metric-fill" id="landmarksBar"></div>
+                                </div>
+                                <span class="metric-value" id="landmarksValue">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h3>How It Works</h3>
+                <p>Our AI analyzes your facial features using advanced computer vision algorithms. The rating is based on:</p>
+                <ul>
+                    <li><strong>Facial Symmetry:</strong> How balanced your facial features are</li>
+                    <li><strong>Golden Ratio Proportions:</strong> Ideal facial proportions based on mathematical beauty standards</li>
+                    <li><strong>Landmark Positioning:</strong> Placement of key facial features like eyes, nose, and mouth</li>
+                </ul>
+                <p class="disclaimer">Note: This is for entertainment purposes only. Beauty is subjective and varies across cultures.</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
